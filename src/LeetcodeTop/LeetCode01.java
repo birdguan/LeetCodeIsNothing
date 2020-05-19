@@ -35,7 +35,7 @@ public class LeetCode01 {
     }
 
     /**
-     * 两遍哈希表
+     * 一遍哈希表
      * @param nums
      * @param target
      * @return

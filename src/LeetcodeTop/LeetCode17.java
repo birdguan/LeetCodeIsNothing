@@ -24,7 +24,7 @@ public class LeetCode17 {
      * @param digits
      * @return
      */
-    public List<String> letterCombinayions(String digits) {
+    public List<String> letterCombinations(String digits) {
         map.put("2", "abc");
         map.put("3", "def");
         map.put("4", "ghi");
@@ -33,7 +33,8 @@ public class LeetCode17 {
         map.put("7", "pqrs");
         map.put("8", "tuv");
         map.put("9", "wxyz");
-
+        dfs("", digits);
+        return result;
     }
 
     private void dfs(String s, String digits) {

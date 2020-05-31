@@ -42,11 +42,9 @@ public class LeetCode29 {
             result += temp_result;
         }
         if (!sign) {
-            if (result <= Integer.MIN_VALUE) return Integer.MIN_VALUE;
+            if (result <= Integer.MIN_VALUE) return Integer.MAX_VALUE;
             result = -result;
         }
         return result;
     }
 }
-
-

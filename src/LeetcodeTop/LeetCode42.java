@@ -125,7 +125,7 @@ public class LeetCode42 {
                 if (height[left] >= leftMax) {
                     leftMax = height[left];
                 } else {
-                    ans += left - height[left];
+                    ans += leftMax - height[left];
                 }
                 left++;
             }
@@ -133,7 +133,7 @@ public class LeetCode42 {
                 if (height[right] >= rightMax) {
                     rightMax = height[right];
                 } else {
-                    ans += right - rightMax;
+                    ans += rightMax - height[right];
                 }
                 right--;
             }

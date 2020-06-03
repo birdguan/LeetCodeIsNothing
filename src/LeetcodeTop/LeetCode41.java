@@ -44,8 +44,8 @@ public class LeetCode41 {
     public int firstMissingPositive(int[] nums) {
         int n = nums.length;
         int contains = 0;
-        for (int i = 0; i < n; i++) {
-            if (nums[i] == 1) {
+        for (int num : nums) {
+            if (num == 1) {
                 contains++;
                 break;
             }
@@ -74,4 +74,5 @@ public class LeetCode41 {
         if (nums[0] > 0) return n;
         return n+1;
     }
+
 }

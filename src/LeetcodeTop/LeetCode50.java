@@ -40,14 +40,14 @@ public class LeetCode50 {
      * @param n
      * @return
      */
-    private double quickPowSolution1(double x, int n) {
+    private double quickPowSolution1(double x, long n) {
         if (n == 0) return 1.0;
         double y = quickPowSolution1(x, n/2);
         return n % 2 == 0 ? y * y : y * y * x;
     }
 
     public double myPowSolution1(double x, int n) {
-        return n >= 0 ? quickPowSolution1(x, n) : 1.0 / quickPowSolution1(x, -n);
+        return (long) n >= 0 ? quickPowSolution2(x, n) : 1.0 / quickPowSolution2(x, -(long) n);
     }
 
     /**
@@ -58,7 +58,7 @@ public class LeetCode50 {
      * @param n
      * @return
      */
-    private double quickPowSolution2(double x, int n) {
+    private double quickPowSolution2(double x, long n) {
         double ans = 1.0;
         double xContribute = x;
         while (n > 0) {
@@ -72,7 +72,7 @@ public class LeetCode50 {
     }
 
     public double myPow(double x, int n) {
-        return n >= 0 ? quickPowSolution2(x, n) : 1.0 / quickPowSolution2(x, -n);
+        return (long) n >= 0 ? quickPowSolution2(x, n) : 1.0 / quickPowSolution2(x, -(long) n);
     }
 
 

@@ -23,6 +23,11 @@ package LeetcodeTop;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode53 {
+    /**
+     * 动态规划
+     * @param nums
+     * @return
+     */
     public int maxSubArray(int[] nums) {
         int pre = 0, max = nums[0];
         for (int num : nums) {

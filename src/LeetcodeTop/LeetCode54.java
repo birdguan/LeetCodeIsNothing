@@ -43,7 +43,7 @@ public class LeetCode54 {
      */
     public List<Integer> spiralOrderSolution1(int[][] matrix) {
         List<Integer> order = new ArrayList<>();
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) return order;
         int rows = matrix.length, cols = matrix[0].length;
         boolean[][] visited = new boolean[rows][cols];
         int total = rows * cols;

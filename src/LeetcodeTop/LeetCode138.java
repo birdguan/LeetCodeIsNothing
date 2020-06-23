@@ -5,6 +5,9 @@ package LeetcodeTop;
  * @Date: 2020/6/23 19:51
  */
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * LeetCode138 复制带随机指针的链表 MEDIUM
  * 给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。
@@ -46,4 +49,47 @@ package LeetcodeTop;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode138 {
+    class Node {
+        private int val;
+        private Node next;
+        private Node random;
+
+        public void setVal(int val) {
+            this.val = val;
+        }
+
+        public int getVal() {
+            return val;
+        }
+
+        public Node(int val, Node next, Node random) {
+            this.val = val;
+            this.next = next;
+            this.random = random;
+        }
+    }
+
+    Map<Node, Node> copiedMap = new HashMap<>();
+    /**
+     * 方法一：回溯，把链表看做一张图
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(n)
+     * @param head 头结点
+     * @return 深度拷贝结果
+     */
+    public Node copyRandomListSolution1(Node head) {
+        if (head == null) return null;
+        if (copiedMap.containsKey(head)) return copiedMap.get(head);
+        Node node = new Node(head.val, null, null);
+        copiedMap.put(head, node);
+        node.next = copyRandomListSolution1(head.next);
+        node.random = copyRandomListSolution1(head.random);
+        return node;
+    }
+
+    /* ------------------------------------------------ */
+
+
+
+    
 }

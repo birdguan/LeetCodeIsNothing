@@ -89,7 +89,42 @@ public class LeetCode138 {
 
     /* ------------------------------------------------ */
 
+    /**
+     * 方法二：O(1)空间的迭代
+     * 时间复杂度：O(n)
+     * 空间复杂度：O(1)
+     * @param head 头结点
+     * @return 深度拷贝结果
+     */
+    public Node copyRandomListSolution2(Node head) {
+        if (head == null) return null;
 
+        Node ptr = head;
 
-    
+        // A -> A' -> B -> B' -> C -> C'
+        while (ptr != null) {
+            Node newNode = new Node(ptr.val, null, null);
+            newNode.next = ptr.next;
+            ptr.next = newNode;
+            ptr = newNode.next;
+        }
+
+        ptr = head;
+        while (ptr != null) {
+            ptr.next.random = ptr.random != null ? ptr.random.next : null;
+            ptr = ptr.next.next;
+        }
+
+        Node ptrOld = head;
+        Node ptrNew = head.next;
+        Node headNew = head.next;
+        while (ptrOld != null) {
+            ptrOld.next = ptrOld.next.next;
+            ptrNew.next = ptrNew.next != null ? ptrNew.next.next : null;
+            ptrOld = ptrOld.next;
+            ptrNew = ptrNew.next;
+        }
+        return headNew;
+    }
+
 }

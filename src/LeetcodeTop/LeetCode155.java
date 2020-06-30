@@ -2,8 +2,10 @@ package LeetcodeTop;
 
 /**
  * @Author: birdguan
- * @Date: 2020/6/27 23:39
+ * @Date: 2020/6/28 9:10
  */
+
+import java.util.Stack;
 
 /**
  * LeetCode155 最小栈 EASY
@@ -33,15 +35,84 @@ package LeetcodeTop;
  * minStack.pop();
  * minStack.top();      --> 返回 0.
  * minStack.getMin();   --> 返回 -2.
- *  
- *
- * 提示：
- *
- * pop、top 和 getMin 操作总是在 非空栈 上调用。
  *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/min-stack
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class LeetCode155 {
+    private Stack<Integer> data;
+    private Stack<Integer> helper;
+
+    public LeetCode155() {
+        data = new Stack<>();
+        helper = new Stack<>();
+    }
+
+    /* -----------------------------------------------------
+    * 方法一：数据栈和辅助栈同步
+    * ---------------------------------------------------- */
+    public void pushSolution1(int x) {
+        data.push(x);
+        if (helper.isEmpty() || helper.peek() >= x) {
+            helper.push(x);
+        } else {
+            helper.push(helper.peek());
+        }
+    }
+
+    public void popSolution1() {
+        if(!data.isEmpty()) {
+            helper.pop();
+            data.pop();
+        }
+    }
+
+    public int topSolution1() {
+        if (!data.isEmpty()) {
+            return data.peek();
+        }
+        throw new RuntimeException("栈中元素为空");
+    }
+
+    public int getMinSolution1() {
+        if (!helper.isEmpty()) {
+            return helper.peek();
+        }
+        throw new RuntimeException("栈中元素为空");
+    }
+
+
+    /* --------------------------------------------------------
+     * 数据栈和辅助栈不同步
+     * ------------------------------------------------------- */
+    public void pushSolution2(int x) {
+        data.push(x);
+        if (helper.isEmpty() || helper.peek() >= x) {
+            helper.push(x);
+        }
+    }
+
+    public void popSolution2() {
+        if (!data.isEmpty()) {
+            int top = data.pop();
+            if (helper.peek() == top) {
+                helper.pop();
+            }
+        }
+    }
+
+    public int top() {
+        if (!data.isEmpty()) {
+            return data.peek();
+        }
+        throw new RuntimeException("栈中元素为空");
+    }
+
+    public int getMin() {
+        if (!helper.isEmpty()) {
+            return helper.peek();
+        }
+        throw new RuntimeException("栈中元素为空");
+    }
 }

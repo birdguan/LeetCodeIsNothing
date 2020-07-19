@@ -41,8 +41,8 @@ public class Sword49 {
             int n2 = dp[a] * 2, n3 = dp[b] * 3, n5 = dp[c] * 5;
             dp[i] = Math.max(n2, Math.min(n3, n5));
             if (dp[i] == n2) a++;
-            else if (dp[i] == n3) b++;
-            else c++;
+            if (dp[i] == n3) b++;
+            if (dp[i] == n5) c++;
         }
         return dp[n-1];
     }

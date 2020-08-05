@@ -35,6 +35,12 @@ import java.util.Queue;
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
  */
 public class Sword41 {
+
+    /**
+     * 优先队列（堆）
+     * 时间复杂度：O(logn)
+     * 空间复杂度：O(n)
+     */
     Queue<Integer> A, B;
     public Sword41() {
         A = new PriorityQueue<>();      // 小顶堆，保存较大的一半

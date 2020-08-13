@@ -30,7 +30,7 @@ public class Sword51 {
 
     private int reversePairs(int[] nums, int left, int right, int[] tmp) {
         if (left == right) return 0;
-        int mid = (left + right) / 2;
+        int mid = left + (right - left) / 2;
         int leftPairs = reversePairs(nums, left, mid, tmp);
         int rightPairs = reversePairs(nums, mid + 1, right, tmp);
 
@@ -57,7 +57,7 @@ public class Sword51 {
                 nums[k] = tmp[i];
                 i++;
             } else if (tmp[i] <= tmp[j]) {
-                nums[k] = tmp[j];
+                nums[k] = tmp[i];
                 i++;
             } else {
                 nums[k] = tmp[j];

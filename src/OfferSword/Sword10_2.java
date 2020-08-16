@@ -36,4 +36,9 @@ public class Sword10_2 {
         }
         return cur;
     }
+
+    public static void main(String[] args) {
+        Sword10_2 sword10_2 = new Sword10_2();
+        System.out.print(sword10_2.numWays(10));
+    }
 }

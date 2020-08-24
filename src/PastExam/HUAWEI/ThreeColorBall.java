@@ -1,4 +1,4 @@
-package PastExam;
+package PastExam.HUAWEI;
 
 /**
  * 华为消费者云服务三色球排序问题（0，1，2乱序排列）

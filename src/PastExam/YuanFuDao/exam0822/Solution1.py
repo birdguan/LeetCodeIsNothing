@@ -18,7 +18,7 @@ if __name__ == '__main__':
     index = index // 2
     while index < 2 ** int(math.log2(n)) - 1:
         out.append(data[index])
-        index += 1k
+        index += 1
     index = 2 ** (int(math.log2(n)) - 1)
     while index - 2 > 0:
         out.append(data[index-2])
